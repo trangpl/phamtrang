@@ -1,0 +1,10 @@
+mixin newsList(news)
+	li
+		a(href=news.link + ".html")
+			.col-md-3
+				.wrapper-img
+					img(src="../img/" + news.img + ".jpg", alt="")
+			.col-md-9
+				h4= news.title
+				p= news.sapo
+			.clearfix

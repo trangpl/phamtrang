@@ -1,0 +1,23 @@
+$carousel_bg: #ffe600
+.static
+	@extend %boat
+	+breakpoint(medium down)
+		// position: relative
+	width: 100%
+	top: 0
+.carousel_bg
+	@extend %boat
+	width: 100%
+	top: 0
+	.orbit-container > &
+		&::after
+			@extend %content
+			background: $carousel_bg
+			// @extend %bg-90_s1
+			width: 100%
+			height: 100%
+			top: 100%
+			z-index: -1
+		svg
+			+breakpoint(medium down)
+				padding-bottom: calc(50vw - 20px)

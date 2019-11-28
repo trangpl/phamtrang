@@ -1,0 +1,97 @@
+=keyframes($animation-name)
+	@-webkit-keyframes #{$animation-name} 
+		@content
+	@-moz-keyframes #{$animation-name} 
+		@content
+	@-ms-keyframes #{$animation-name} 
+		@content
+	@-o-keyframes #{$animation-name} 
+		@content
+	@keyframes #{$animation-name} 
+		@content
+// FADE
+// --------------------------------------------------------------------
++keyframes(fadeIn)
+	0%
+		opacity: 0
+	100%
+		opacity: 1
++keyframes(fadeOut)
+	0%
+		opacity: 1
+	100%
+		opacity: 0
++keyframes(fadeInver10)
+	0%
+		opacity: 0
+		+translate(Y, 10px) 
+	100%
+		opacity: 1
+		+translate(Y, 0)
++keyframes(fadeOutver10)
+	0%
+		opacity: 1
+		+translate(Y, 0)
+	100%
+		opacity: 0
+		+translate(Y, -10px)
++keyframes(fadeInver30)
+	0%
+		opacity: 0
+		+translate(Y, 30px)
+	100%
+		opacity: 1
+		+translate(Y, 0)
++keyframes(fadeInver50)
+	0%
+		opacity: 0
+		+translate(Y, 50px)
+	100%
+		opacity: 1
+		+translate(Y, 0)
++keyframes(fadeOutver50)
+	0%
+		opacity: 1
+		+translate(Y, 0)
+	100%
+		opacity: 0
+		+translate(Y, 50px)
++keyframes(fadeOutver30)
+	0%
+		opacity: 1
+		+translate(Y, 0)
+	100%
+		opacity: 0
+		+translate(Y, 30px)
++keyframes(fadeInhor30)
+	0%
+		opacity: 0
+		+translate(X, -30px)
+	100%
+		opacity: 1
+		+translate(X,0)
++keyframes(fadeOuthor30)
+	0%
+		opacity: 1
+		+translate(X,0)
+	100%
+		opacity: 0
+		+translate(X, -30px)
++keyframes(fadeInhor30rev)
+	0%
+		opacity: 0
+		+translate(X, 30px)
+	100%
+		opacity: 1
+		+translate(X,0)
++keyframes(fadeOuthor30rev)
+	0%
+		opacity: 1
+		+translate(X,0)
+	100%
+		opacity: 0
+		+translate(X, 30px)
+// STROKE
+// --------------------------------------------------------------------
+
+

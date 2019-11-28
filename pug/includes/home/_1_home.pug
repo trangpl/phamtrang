@@ -1,0 +1,43 @@
+mixin svg_bg(w,h)
+	svg(viewBox='0 0 '+w+' '+h)
+mixin svg_bg500()
+	svg(viewBox='0 0 500 500')
+section#impression.orbit(role="region", aria-label='my awesome artwork',)
+	.orbit-wrapper
+		ul.orbit-container
+			.carousel_bg
+				.grid-x.grid-container
+					.large-6.large-offset-6.cell
+						+svg_bg('500','415')
+			li.is-active.orbit-slide
+				.carousel_bg
+					.grid-x.grid-container
+						.text_container.large-6.cell
+							h1 I do
+							h1 UI/UX design
+								br
+								a.button.hollow(href="contact.html") HIRE ME
+						.large-6.large-6-offset.cell
+							+svg_bg('500','415')
+				.grid-x.grid-container
+					.illus_container.large-6.cell.large-offset-6
+						svg#slide1
+			li.orbit-slide
+				.carousel_bg
+					.grid-x.grid-container
+						.text_container.large-6.cell
+							h1 I do
+							h1 Branding design
+								br
+								a.button.hollow(href="contact.html") HIRE ME
+						.large-6.large-6-offset.cell
+							+svg_bg('500','415')
+				.grid-x.grid-container
+					.illus_container.large-6.cell.large-offset-6
+						svg#slide2
+			.static
+				.grid-x.grid-container
+					.illus_container.large-6.cell.large-offset-6
+						svg#static
+				
+	#scroll_mark

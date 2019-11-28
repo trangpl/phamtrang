@@ -1,0 +1,95 @@
+// fonts
+@each $key, $value in $fonts
+	%#{$key}
+		font-family: $value, san-serif 
+// ------------------------------------------------------------------------------------------
+// timing
+@each $key, $value in $timing
+	%#{$key}
+		+trans-function(map-deep-get($timing, $key))
+	%func-#{$key}
+		+ani-func(map-deep-get($timing, $key))
+@each $key, $value in $ani-dura
+	%dura-#{$key}
+		+ani-dura($value)
+%forwards
+	+ani-mode(forwards)
+%fadeout
+	+ani-name(fadeOutver30)
+	@extend %forwards
+	@extend %dura-300
+@each $key, $value in $animations
+	%#{$key}
+		+ani-name($value)
+// -------------------------------------------------------------------------------------------
+// gradient
+@each $key, $value in $global_grad
+	%bg-45_#{$key}
+		+grad-45(map-deep-get($global_grad, $key, 'from'), map-deep-get($global_grad, $key, 'to'))
+	%bg-90_#{$key}
+		+grad-90(map-deep-get($global_grad, $key, 'from'), map-deep-get($global_grad, $key, 'to'))
+
+%overlay
+	background: rgba(0,0,0,0.2) 
+%invi
+	opacity: 0
+%reveal
+	opacity: 1
+// ------------------------------------------------------------------------------------------------
+// positions
+%anchor
+	position: relative
+%boat
+	position: absolute
+.anchor
+	@extend %anchor
+.boat
+	@extend %boat
+%fix
+	position: fixed 
+%flex
+	display: flex 
+%ver-center
+	@extend %boat
+	top: 50%
+	+translate(Y, -50%)
+%flex-vc
+	@extend %flex
+	-webkit-flex-direction: column 
+	-ms-flex-direction: column 
+	flex-direction: column
+	-webkit-justify-content: flex-end 
+	justify-content: flex-end 
+// ------------------------------------------------------------------------------------------------
+// pseudo
+%content
+	content: ''
+	position: absolute
+	display: inline-block
+// ------------------------------------------------------------------------------------------------
+// transform-origin
+%trans_mid
+	+trans-origin(center, center)
+@each $key, $value in $trans-distant
+	%transX-#{$key}
+		+translate(X, $value)
+	%transY-#{$key}
+		+translate(Y, $value)
+// ------------------------------------------------------------------------------------------------
+// text
+%fit
+	padding: 0
+	margin: 0 
+// ------------------------------------------------------------------------------------------------
+// level z-index
+@each $key, $value in $z_index
+	%#{$key}
+		z-index: $value
+// ------------------------------------------------------------------------------------------------
+// filters
+%filter-sd
+	+filter-sd(0px 14px 28px rgba(0,0,0,0.3))
+%sd-1
+	+shadow(0px, 14px, 28px, 0, rgba(0,0,0,0.3), 'false' )
+
+

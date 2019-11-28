@@ -1,0 +1,71 @@
+mixin list__date(content)
+	ul(class!=content.class)
+		each item in content.list
+			li
+				a(href=item.link)= item.sapo
+					strong= item.time
+
+mixin listContent(content)
+	ul(class!=content.class)
+		each item in content.list
+			li(class!=item.class)
+				if item.class == 'list__iconLeft'
+					a(href=item.href)
+						i(class!=item.icon)
+						= item.link
+				if item.class == 'list__iconRight'
+					a(href=item.href)
+						= item.link
+						i(class!=item.icon)
+				if item.class == 'list__nav'
+					a(href=item.href)
+						= item.link
+						i.fa.fa-angle-right
+				if item.class == ''
+					a(href=item.href)= item.link
+					
+mixin listBlock(content)
+	ul(class!=content.class)
+		if content.type == 'row'
+			each item in content.list
+				li
+					.row
+						div(class!='col-sm-' + item.col)
+							a(href=item.href)
+								.img__container
+									img(src='../img/' + item.img + '.jpg', alt=item.img)
+									svg(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', viewbox='0 0 30 30', xml:space='preserve')
+										path(d='M0.3,5.6l0.4,3c0,0,11.2,2.5,14.3,19.4C15,28.1,13.9,9.9,0.3,5.6')
+										path(d='M0,1.9l0.4,3c0,0,11.4,2.1,14.5,19C14.9,24,13.6,6.2,0,1.9')
+										path(d='M29.7,5.6l-0.4,3c0,0-11.2,2.5-14.3,19.4C15,28.1,16.1,9.9,29.7,5.6')
+										path(d='M30,1.9l-0.4,3c0,0-11.4,2.1-14.5,19C15.1,24,16.4,6.2,30,1.9')
+						div(class!='col-sm-' + (12 -item.col))
+							if item.schedule
+								strong.time__schedule
+									i.far.fa-calendar-alt.fa-2x
+									=item.schedule
+							a(href=item.href)
+								h5=item.title
+							p.time__post
+								small
+									i.fas.fa-pen-square
+									=item.timepost
+		if content.type == 'col'
+			each item in content.list
+				li(class!='col-sm-' + item.col)
+					a(href=item.href)
+						.img__container
+							img(src='../img/' + item.img + '.jpg', alt=item.img)
+							svg(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', viewbox='0 0 30 30', xml:space='preserve')
+								path(d='M0.3,5.6l0.4,3c0,0,11.2,2.5,14.3,19.4C15,28.1,13.9,9.9,0.3,5.6')
+								path(d='M0,1.9l0.4,3c0,0,11.4,2.1,14.5,19C14.9,24,13.6,6.2,0,1.9')
+								path(d='M29.7,5.6l-0.4,3c0,0-11.2,2.5-14.3,19.4C15,28.1,16.1,9.9,29.7,5.6')
+								path(d='M30,1.9l-0.4,3c0,0-11.4,2.1-14.5,19C15.1,24,16.4,6.2,30,1.9')
+					a(href=item.href)
+						h5=item.title
+					small.time__post
+						i.fas.fa-pen-square
+						=item.timepost
+				if item.clear == 'clear'
+					.clearfix
+

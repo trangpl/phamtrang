@@ -1,0 +1,12 @@
+mixin accordion(content)
+	div(id=content.parent ,role='tablist', aria-multiselectable='true',class!=content.class)
+		each item in content.panel
+			.panel
+				div(id=item.heading, role='tab').accordion__heading
+					a(role='button', data-toggle='collapse', data-parent='#' + content.parent, href='#' + item.child, aria-expanded='false', aria-controls=item.child)=item.title
+						.boat
+							.accordion__btn
+				div(id=item.child, role='tabpanel', aria-labelledby=item.heading).accordion__content.collapse
+					.panel-body
+						=item.content
+						block

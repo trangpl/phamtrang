@@ -1,0 +1,116 @@
+$board-time: 5000ms
+// keyframes
+// ----------------------------------------------------------------------------
++keyframes(wc)
+	0%
+		stroke-dashoffset: 1000
+	100%
+		stroke-dashoffset: 0
+// style
+// ----------------------------------------------------------------------------
+	// border
+#wc, #com_bd
+	stroke-dashoffset: 1000
+	// stroke-width: 2px
+	stroke: $base
+	@extend %forwards
+	@extend %dura-1000
+	+ani-delay(200ms)
+	@extend %func-out
+	.is-active &
+		+ani-name(wc)
+#wc
+	stroke-dasharray: 10,10,500,10,10,10,590
+#wc_bg, #com_bg
+	@extend %invi
+	@extend %dura-500
+	@extend %func-out
+	@extend %forwards
+	.is-active &
+		@extend %fadein
+#wc_bg
+	+ani-delay(500ms)
+	// buttons------------------------------------------------------
+%wc_btn
+	@extend %invi
+	@extend %forwards
+	@extend %dura-300
+	@extend %func-out
+	.is-active &
+		@extend %inver10
+#btn-mid
+	@extend %wc_btn
+	+ani-delay(700ms)
+@for $i from 1 through 6
+	#btn#{$i}
+		@extend %wc_btn
+		.is-active &
+			+ani-delay(100ms*(7 - $i) + 400ms)
+
+
+	// blue print---------------------------------------------------
++keyframes(bp_animation)
+	0%
+		+transform(scale(1,1) translateX(0))
+		@extend %func-outquad
+		+trans-origin(right, center)
+	100%
+		+transform(scale(0.8,0.8) translateX(-155px) translateY(-23px))
+		@extend %func-outquad
+		+trans-origin(right, center)
+
+#bp
+	@extend %forwards
+	@extend %dura-1000
+	+ani-delay(2000ms)
+	.is-active &
+		+ani-name(bp_animation)
+
+#bp_line
+	rect
+		@extend %invi
+		@extend %dura-300
+		@extend %forwards
+		@extend %func-out
+		@for $i from 1 through 21
+			&:nth-of-type(#{$i})
+				+ani-delay(35ms*(21-$i)+600ms)
+		.is-active &
+			@extend %inver10
+			
+#bp_bg
+	@extend %invi
+	@extend %dura-500
+	@extend %forwards
+	+ani-delay(1350ms)
+	.is-active &
+		@extend %fadein
+#bp_logo
+	@extend %invi
+	@extend %dura-500
+	@extend %forwards
+	@extend %func-out
+	+ani-delay(1400ms)
+	.is-active &
+		@extend %inver30
+	
+	// identity---------------------------------------------------
+#a4, #nc1, #nc2, #board_en
+	@extend %invi
+	@extend %forwards
+	@extend %func-out
+	@extend %dura-500
+	@extend %transX--30
+	.is-active &
+		@extend %inhor30
+#a4
+	+ani-delay(2800ms)
+#nc1
+	+ani-delay(3000ms)
+#nc2
+	+ani-delay(3200ms)
+#board_en
+	+ani-delay(3400ms)
+#board, #com
+	@extend %fadeout
+	+ani-delay($board-time - 300ms)

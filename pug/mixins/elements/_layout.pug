@@ -1,0 +1,6 @@
+mixin content-col(content)
+	.col-sm-8.col-md-9(class!=content.class, id=content.id)
+		block 
+mixin sidebar-col(content)
+	.col-sm-4.col-md-3(class!=content.class, id=content.id)
+		block 

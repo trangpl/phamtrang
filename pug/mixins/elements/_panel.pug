@@ -1,0 +1,26 @@
+mixin panel(title, des)
+	.panel.panel-body
+		.panel-heading
+			h3.slab= title
+			if des
+				p= des
+			+divider-left()
+
+//- isme panel base
+mixin panelpages(content)
+	.panel.panel-body.anchor
+		svg.bch(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', viewbox='0 0 38 38', xml:space='preserve')
+			style(type='text/css').
+				.bch0{fill:#B52A42;}
+				.bch1{fill:#C35065;}
+				.bch2{fill:#CACED0;}
+			path.bch0(d='M0.2,0v29.7c0,0,1.2-16,9.9-29.7H0.2z')
+			path.bch2(d='M23.6,0h-7.7C4.1,12,0.9,30.1,0.2,36.2v1.1C4.8,14.5,16.2,4.3,23.6,0z')
+			path.bch1(d='M10.1,0C1.4,13.7,0.2,29.7,0.2,29.7C2.9,15.4,8.3,6,13.9,0H10.1z')
+		if content == 'logo__ibd'
+			.logo__sub(class!=content)
+				+logoIBD()
+		if content == 'logo__imd'
+			.logo__sub(class!=content)
+				+logoIMD()
+		block

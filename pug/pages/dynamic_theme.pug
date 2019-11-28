@@ -1,0 +1,33 @@
+extends ../layoutPage
+append config
+	- pageTitle = 'Pham Trang| Dynamic theme'
+	-
+		css_vendor = [
+
+		]
+	- 
+		js_vendor = [
+			'/scroll/jquery.parallax-scroll',
+			'home',
+		]
+	//- variables
+
+//- loader
+block loader
+	//- include ../includes/_loader
+
+//- background or parallax here
+block background
+
+//- header here
+block header
+	
+	include ../includes/headers/nav
+	
+//- main content here
+block main
+	include ../includes/home/home
+//- footer here
+block footer
+//- popup here
+block popup

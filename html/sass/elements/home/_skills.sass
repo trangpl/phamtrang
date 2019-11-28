@@ -1,0 +1,95 @@
+$sk-color: mix(black, map-deep-get($global_grad, 'g5', 'to'), 80)
+// $sk-color: white
+$sk6-color: rgba(white, 0.4)
+.container_bg
+	@extend %boat
+	width: 100%
+	top: 100px
+#pr_skills
+	@extend %bg-45_g5
+	padding-bottom: 100px
+#ft_deskbg, #ft_rain
+	@extend %boat
+	z-index: 1 
+	top: 0
+	width: (736*100%/500)
+	left: (-112*100%/500)
+#ft_mb1
+	@extend %anchor
+	z-index: 2 
+	text
+		fill: $sk-color
+#ft_desk
+	text
+		fill: rgba(black, 0.4)
+%skl
+	stroke: $sk-color
+	stroke-width: 1px
+	stroke-dasharray: 5 5 10 5 500
+#allskl, #allskl2
+	stroke: $sk-color
+	stroke-width: 2px
+#allskl2
+	stroke-dasharray: 5 5 10 15 500
+#allskl3
+	stroke:  rgba(white, 0.4)
+	stroke-width: 2px
+	stroke-dasharray: 5 5 10 15 500
+
+#sks6
+	fill: none
+
+#sks1, #sks2, #sks3, #sks4, #sks5
+	fill: $sk-color
+#skl1, #skl2, #skl3, #skl4, #skl5, #skl6
+	@extend %skl
+#skl6
+	stroke: $sk6-color
+#end_pt
+	fill: black
+#clouds
+	path
+		fill: none
+		stroke-width: 2px
+	[id*='cl_a']
+		stroke: rgba(white, 0.9)
+	[id*='cl_b']
+		stroke: rgba(white, 0.8)
+	[id*='cl_c']
+		stroke: rgba(white, 0.4)
+#sk3, #sk4, #sk5, #sk2
+	text
+		@extend %roboto
+		&:nth-of-type(1)
+			font-weight: bold
+		&:nth-of-type(2)
+			font-style: italic 
+			font-size: 0.6em
+			opacity: 0.7
+#sk6
+	> text
+		fill: $sk6-color
+		@extend %roboto
+		font-weight: bold
+		
+#sk62
+	text
+		font-size: 0.6em
+		@extend %roboto
+		font-style: italic
+		opacity: 0.7
+		fill: $sk6-color
+#sk1
+	@extend %roboto
+	font-weight: bold	
+#sk2 g
+	text
+		&:nth-of-type(1)
+			font-size: 0.6em
+			opacity: 0.8
+			font-weight: normal
+			font-style: italic 
+#fsd_bg
+	fill: rgba(white, 0.1)
+[id*='skb']
+	fill: none

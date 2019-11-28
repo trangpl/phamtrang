@@ -1,0 +1,53 @@
+#pr_about
+	width: 100%
+	// background: $carousel_bg
+	@extend %bg-90_intro
+	// margin-bottom: 50px 
+	.illus_container
+		@extend %flex
+		-webkit-flex-direction: column
+		-ms-flex-direction: column
+		flex-direction: column
+		-webkit-justify-content: center 
+		justify-content: center 
+		p
+			text-align: center
+// button contact
+#mes_box
+	@extend %invi
+	stroke-dasharray: 40 10 110 10 230
+	// stroke-dashoffset: 390
+	stroke-width: 3px
+	@extend %dura-500
+	@extend %func-out
+	@extend %forwards
+#mes_box, #mes1, #mes2, #mes3
+	stroke: mix($base, $carousel_bg,40)
+@for $i from 1 through 3
+	#mes#{$i}
+		@extend %invi
+		@extend %dura-500
+		@extend %func-out
+		@extend %forwards
+		+ani-delay(30ms*(3-$i)+10ms)
+		#contact_btn:hover &
+			@extend %inver10
+#contact_en
+	+timing(500ms, map-deep-get($timing, 'out'))
+#contact_btn
+	width: 150px
+	margin: 0 auto
+	color: $base
+	text-transform: uppercase
+	font-weight: bold
+	max-width: 100% 
+	@extend %flex
+	-webkit-flex-direction: column-reverse
+	 -ms-flex-direction: column-reverse 
+	 flex-direction: column-reverse
+	text-align: center
+	&:hover
+		#mes_box
+			@extend %inver10
+		#contact_en
+			+translate(X, 20px)

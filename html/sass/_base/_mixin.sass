@@ -1,0 +1,286 @@
+//
+// MIXINS 
+// 1. Box
+// 2. Buttons
+// 3. Forms
+// 4. Transitions
+// 5. Shapes
+// 6. Appearances
+// 7. Shadow
+// 8. Effects
+// ---------------------------------------------------------
+
+//## -----------------------------------------
+// 	  1. timing functions
+//## -----------------------------------------
+=timing($time, $function)
+	-ms-transition: $time $function all
+	-moz-transition: $time $function all
+	-o-transition: $time $function all
+	-webkit-transition: $time $function all
+	transition: $time $function all
+=trans-function($function)
+	-webkit-transition-timing-function: $function 
+	-moz-transition-timing-function: $function 
+	-ms-transition-timing-function: $function 
+	-o-transition-timing-function: $function 
+	transition-timing-function: $function 
+//## -----------------------------------------
+// 	  2. positions
+//## -----------------------------------------
+=clearfix()
+	&::after
+		display: block
+		content: ""
+		clear: both
+=noappearance()
+	appearance: none
+	-ms-appearance: none
+	-moz-appearance: none
+	-o-appearance: none
+	-webkit-appearance: none
+
+//## -----------------------------------------
+// 	  4. Transition
+//		- rotate
+//		- mirror
+// 		- delay
+// 		- translateY($a)
+//		- translateX($a)
+
+//## -----------------------------------------
+=transform($x)
+	-webkit-transform: $x 
+	-moz-transform: $x 
+	-ms-transform: $x 
+	-o-transform: $x 
+	transform: $x 
+=trans-origin($x, $y)
+	-webkit-transform-origin: $x $y 
+	-moz-transform-origin: $x $y 
+	-ms-transform-origin: $x $y 
+	-o-transform-origin: $x $y 
+	transform-origin: $x $y
+=trans-delay($x)
+	-webkit-transition-delay: $x 
+	-moz-transition-delay: $x 
+	-ms-transition-delay: $x 
+	-o-transition-delay: $x 
+	transition-delay: $x 
+=trans-dura($x)
+	-webkit-transition-duration: $x 
+	-moz-transition-duration: $x 
+	-ms-transition-duration: $x 
+	-o-transition-duration: $x 
+	transition-duration: $x 
+=rotate($direction, $deg)
+	-ms-transform: rotate#{$direction}'(#{$deg})'
+	-moz-transform: rotate#{$direction}'(#{$deg})'
+	-o-transform: rotate#{$direction}'(#{$deg})'
+	-webkit-transform: rotate#{$direction}'(#{$deg})'
+	transform: rotate#{$direction}'(#{$deg})'
+=translate($direction, $value)
+	-ms-transform: translate#{$direction}'(#{$value})'
+	-webkit-transform: translate#{$direction}'(#{$value})'
+	-moz-transform: translate#{$direction}'(#{$value})'
+	-o-transform: translate#{$direction}'(#{$value})'
+	transform: translate#{$direction}'(#{$value})'
+=scale($ratio)
+	-ms-transform: scale(#{$ratio})
+	-webkit-transform: scale(#{$ratio})
+	-moz-transform: scale(#{$ratio})
+	-o-transform: scale(#{$ratio})
+	transform: scale(#{$ratio})
+=flipH()
+	-moz-transform: scaleX(-1)
+	-o-transform: scaleX(-1)
+	-webkit-transform: scaleX(-1)
+	transform: scaleX(-1)
+	filter: FlipH
+	-ms-filter: “FlipH”
+=flipV()
+	-moz-transform: scaleY(-1)
+	-o-transform: scaleY(-1)
+	-webkit-transform: scaleY(-1)
+	transform: scaleY(-1)
+	filter: FlipV
+	-ms-filter: “FlipV”
+=fadeIn($direction, $time, $distance)
+	visibility: visible
+	
+//## -----------------------------------------
+// 	  5. Shapes
+//		- ellip
+//		- noradius
+// 		- bdradius
+//## -----------------------------------------
+=ellip()
+	white-space: nowrap
+	overflow: hidden
+	text-overflow: ellipsis
+=bdradius($a)
+	border-radius: $a
+	-ms-border-radius: $a
+	-moz-border-radius: $a
+	-o-border-radius: $a
+	-webkit-border-radius: $a
+=circle()
+	border-radius: 50%
+	-ms-border-radius: 50%
+	-moz-border-radius: 50%
+	-o-border-radius: 50%
+	-webkit-border-radius: 50%
+=skew($direction, $a) 
+	-moz-transform: skew#{$direction}'(#{$a})'
+	-ms-transform: skew#{$direction}'(#{$a})'
+	-o-border-radius: skew#{$direction}'(#{$a})'
+	-webkit-transform: skew#{$direction}'(#{$a})'
+	transform: skew#{$direction}'(#{$a})'
+=triangle($direction, $a, $b, $c)
+	@if ($direction == 'up')
+		width: 0 
+		height: 0 
+		border-left: $a solid transparent
+		border-right: $a solid transparent
+		border-bottom: $b solid $c
+	@if ($direction == 'down')
+		width: 0 
+		height: 0 
+		border-left: $a solid transparent
+		border-right: $a solid transparent
+		border-top: $b solid $c
+	@if ($direction == 'right')
+		width: 0 
+		height: 0 
+		border-top: $a solid transparent
+		border-bottom: $a solid transparent
+		border-left: $b solid $c
+	@if ($direction == 'left')
+		width: 0 
+		height: 0 
+		border-top: $a solid transparent
+		border-bottom: $a solid transparent 
+		border-right: $b solid $c 
+	@if ($direction == 'top-right')
+		width: 0
+		height: 0
+		border-top: $a solid $c
+		border-left: $b solid transparent
+	@if ($direction == 'top-left')
+		width: 0
+		height: 0
+		border-top: $a solid $c
+		border-right: $b solid transparent
+	@if ($direction == 'bottom-right')
+		width: 0
+		height: 0
+		border-bottom: $a solid $c
+		border-left: $b solid transparent
+	@if ($direction == 'bottom-left')
+		width: 0
+		height: 0
+		border-bottom: $a solid $c
+		border-right: $b solid transparent
+
+//## -----------------------------------------
+// 	  7. Shadow
+//		- shadow
+//		- hover-shadow
+//## -----------------------------------------
+=shadow($x, $y, $blur, $spread, $color, $inset)
+	@if ($inset == 'true')
+		-webkit-box-shadow: inset $x $y $blur $spread $color
+		-moz-box-shadow: inset $x $y $blur $spread $color
+		-ms-box-shadow: inset $x $y $blur $spread $color
+		-o-box-shadow: inset $x $y $blur $spread $color
+		box-shadow: inset $x $y $blur $spread $color
+	@else 
+		-webkit-box-shadow: $x $y $blur $spread $color
+		-moz-box-shadow: $x $y $blur $spread $color
+		-ms-box-shadow: $x $y $blur $spread $color
+		-o-box-shadow: $x $y $blur $spread $color
+		box-shadow: $x $y $blur $spread $color
+=filter-sd($x)
+	filter: drop-shadow($x)
+	-webkit-filter: drop-shadow($x)
+	-moz-filter: drop-shadow($x)
+//## -----------------------------------------
+// 	  8. Effects
+//## -----------------------------------------
+// color for placeholder input & textarea
+
+=plh-color($color)
+	&::-webkit-input-placeholder
+		color: $color
+	&:-moz-placeholder
+		color: $color
+	&::-moz-placeholder
+		color: $color
+	&:-ms-input-placeholder
+		color: $color
+//## -----------------------------------------
+// 	  Animation
+//## -----------------------------------------
+=animation($x)
+	-webkit-animation: $x
+	-moz-animation: $x
+	-ms-animation: $x
+	-o-animation: $x
+	animation: $x
+=ani-name($name)
+	-webkit-animation-name: $name 
+	-moz-animation-name: $name 
+	-o-animation-name: $name 
+	animation-name: $name
+=ani-dura($x)
+	-webkit-animation-duration: $x 
+	-moz-animation-duration: $x 
+	-o-animation-duration: $x 
+	animation-duration: $x
+=ani-delay($x)
+	-webkit-animation-delay: $x 
+	-moz-animation-delay: $x 
+	-o-animation-delay: $x 
+	animation-delay: $x
+=ani-count($x)
+	-webkit-animation-iteration-count: $x 
+	-moz-animation-iteration-count: $x 
+	-o-animation-iteration-count: $x 
+	animation-iteration-count: $x
+=ani-mode($x)
+	-webkit-animation-fill-mode: $x 
+	-moz-animation-fill-mode: $x 
+	-o-animation-fill-mode: $x 
+	animation-fill-mode: $x
+=ani-func($x)
+	-webkit-animation-timing-function: $x 
+	-moz-animation-timing-function: $x 
+	-o-animation-timing-function: $x 
+	animation-timing-function: $x 
+	
+
+//## -----------------------------------------
+// 	  Gradient
+//## -----------------------------------------
+
+	
+=grad-45($start_color, $end_color)
+	background: $start_color;
+	background: -moz-linear-gradient(-45deg, $start_color 0%, $end_color 100%);
+	background: -webkit-gradient(left top, right bottom, color-stop(0%, $start_color), color-stop(100%, $end_color));
+	background: -webkit-linear-gradient(-45deg, $start_color 0%, $end_color 100%);
+	background: -o-linear-gradient(-45deg, $start_color 0%, $end_color 100%);
+	background: -ms-linear-gradient(-45deg, $start_color 0%, $end_color 100%);
+	background: linear-gradient(135deg, $start_color 0%, $end_color 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start_color', endColorstr='$end_color', GradientType=1 );
+	
+=grad-90($start_color, $end_color)
+	background: $start_color;
+	background: -moz-linear-gradient(-90deg, $start_color 0%, $end_color 100%);
+	background: -webkit-gradient(top, bottom, color-stop(0%, $start_color), color-stop(100%, $end_color));
+	background: -webkit-linear-gradient(-90deg, $start_color 0%, $end_color 100%);
+	background: -o-linear-gradient(-90deg, $start_color 0%, $end_color 100%);
+	background: -ms-linear-gradient(-90deg, $start_color 0%, $end_color 100%);
+	background: linear-gradient(180deg, $start_color 0%, $end_color 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start_color', endColorstr='$end_color', GradientType=1 );
+	

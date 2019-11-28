@@ -1,0 +1,228 @@
+$nav_time: 1.5s
+$bg_time: $nav_time*2/3
+$link_time: $nav_time/3
+$link_size: 3em
+// ------------------------------------------
+.nav_container
+	@extend %boat
+	top: 0
+	left: 50%
+	+translate(X, -50%)
+	width: 120%
+	min-height: 800px
+	margin-top: -200px 
+	+breakpoint(medium down)
+		height: 100%
+		margin-top: 0 
+	background: white
+	+ani-name(bg_up)
+	+ani-mode(forwards)
+	+ani-dura(0.5s)
+	// +ani-func(cubic-bezier(0.815, 0.09, 0.885, 0.14))
+	// +ani-func(map-deep-get($timing, 'outShort', 'cb'))
+	+ani-delay(0.5s)
+.backdrop
+	display: none
+	position: absolute
+	background: rgba(0,0,0,0.2)
+	left: 0
+	right: 0
+	top: 0
+	bottom: 0
+	z-index: -1
+	opacity: 0
+	+trans-dura(0.5s)
+	+trans-delay(0.5s)
+	// +breakpoint(small only)
+	// 	background: white
+	.show &
+		display: block
+	.active &
+		opacity: 1 
+#nav
+	$base_index: 110
+	// --------------------------------------
+	// backdrop
+	display: none
+	position: fixed
+	left: 0
+	right: 0
+	top: 0
+	bottom: 0
+	z-index: $base-index 
+	&.active
+		.nav_container
+			+ani-name(bg_down)
+			+ani-mode(forwards)
+			+ani-dura(1s)
+			+ani-func(cubic-bezier(0.815, 0.09, 0.885, 0.14))
+			+ani-delay(0s)
+	+breakpoint(medium)
+		a
+			&:hover
+				color: orange
+	&.show
+		display: block
+
+	// --------------------------------------
+	// links
+%nav_li
+	li
+		+ani-name(fadeOutver30)
+		+ani-func(map-get($timing, 'in'))
+		+ani-mode(forwards)
+		@for $i from 1 through 4
+			&:nth-of-type(#{$i})
+				+ani-dura(120ms*(4-$i)+10ms)
+		.active &
+			+ani-name(fadeInver30)
+			+ani-func(map-get($timing, 'out'))
+			+ani-mode(forwards)
+			+ani-delay(1s)
+			@for $i from 1 through 4
+				&:nth-of-type(#{$i})
+					+ani-dura(240ms*(4-$i)+120ms)
+.nav_list
+	@extend %boat
+	left: 25%
+	top: 50px
+	+breakpoint(medium down)
+		position: relative
+		left: 10%
+	@extend %roboto
+	font-weight: bold
+	li
+		font-size: $link_size
+		opacity: 0 
+		+breakpoint(medium down)
+			font-size: 2em
+		&.active
+			a
+				color: orange
+		a
+			&:hover
+				color: orange
+	a
+		color: $base
+	@extend %nav_li
+	// keyframe
+
+.nav_socials
+	position: absolute
+	right: 5%
+	bottom: 30px
+	+breakpoint(medium down)
+		right: auto
+		left: 10% 
+	li
+		margin-bottom: 7px
+		opacity: 0 
+	a
+		text-align: center
+		display: block
+		color: lighten($base, 40) 
+	span
+		position: absolute
+		width: 1px
+		background: lighten($base, 40) 
+		left: 50%
+		height: 30px
+	@extend %nav_li
+
+.nav_sapo
+	opacity: 0 
+	@extend %boat
+	left: 5%
+	top: 60px
+	color: lighten($base, 40)
+	&::after
+		@extend %content
+		width: 30px
+		height: 20px
+		background: yellow
+		+trans-origin(left, center)
+		left: -10px
+		z-index: -1
+		bottom: -5px  
+	+breakpoint(medium down)
+		position: relative
+		left: 10%
+		margin-top: 30px
+		&::after
+			bottom: -10px
+			left: -10px
+			+rotate(Z, 0)
+	+ani-name(fadeOutver30)
+	+ani-func(map-get($timing, 'in'))
+	+ani-mode(forwards)
+	+ani-dura(0.2s)
+	.active &
+		+ani-name(fadeInver30)
+		+ani-func(map-get($timing, 'out'))
+		+ani-mode(forwards)
+		+ani-dura(0.2s)
+		+ani-delay(1s)
+.nav_marker
+	z-index: 0 
+	overflow: hidden
+	position: absolute
+	top: 0 
+	width: 100%
+	min-height: 600px
+	+breakpoint(medium down)
+		height: 100vh
+// keyframe
++keyframes(list_down)
+	0%
+		opacity: 1
+		+translate(Y, 0px)
+	100%
+		opacity: 0
+		+translate(Y, 30px) 
++keyframes(list_up)
+	0%
+		opacity: 0
+		+translate(Y, 30px)
+	100%
+		opacity: 1
+		+translate(Y, 0px)
++keyframes(mark_up)
+	0%
+		opacity: 0
+	100%
+		opacity: 1
++keyframes(mark_down)
+	0%
+		opacity: 1
+	100%
+		opacity: 0
+		
++keyframes(bg_down)
+	0%
+		+transform(translateY(-100%)translateX(-50%))
+	50%
+		+transform(translateY(-50%)translateX(-50%) skewY(-20deg))
+	100%
+		+transform(translateY(0)translateX(-50%))
++keyframes(bg_up)
+	0%
+		+transform(translateY(0)translateX(-50%))
+	100%
+		+transform(translateY(-100%)translateX(-50%))
+	
+
+
+// @-webkit-keyframes burger_active
+// 	0%
+// 		-webkit-transform                : translateY(-100%) translateX(-50%)
+// 		transform                        : translateY(-100%) translateX(-50%)
+// 		-webkit-animation-timing-function: cubic-bezier(0.815, 0.09, 0.885, 0.14)
+
+// 	50%
+// 		-webkit-transform: translateY(-50%) translateX(-50%) skewY(-20deg)
+// 		transform        : translateY(-50%) translateX(-50%) skewY(-20deg)
+
+// 	100%
+// 		-webkit-animation-timing-function: cubic-bezier(0.815, 0.09, 0.885, 0.14)
+// 		-webkit-transform                : translateY(0%) translateX(-50%)
+// 		transform                        : translateY(0%) translateX(-50%)

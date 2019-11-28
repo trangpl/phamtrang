@@ -1,0 +1,32 @@
+extends ../layoutPage
+append config
+	- pageTitle = 'I design things, we design great things'
+	-
+		css_vendor = [
+
+		]
+	- 
+		js_vendor = [
+			'contact'
+		]
+	- nav_items = nav_about
+	// variables
+
+//- loader
+block loader
+	// include ../includes/_loader
+
+//- background or parallax here
+block background
+
+//- header here
+block header
+	include ../includes/headers/nav
+	
+//- main content here
+block main
+	include ../includes/contact/form
+//- footer here
+block footer
+//- popup here
+block popup

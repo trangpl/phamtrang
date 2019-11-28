@@ -1,0 +1,11 @@
+//- button popup
+mixin button(content)
+	if content.modal
+		a(href=content.href, class!=content.class, data-toggle='modal', data-target='#' + content.modal)= content.text
+			if content.icon
+				i(class!=content.icon)
+	else
+		a(href=content.href, class!=content.class)= content.text
+			if content.icon
+				i(class!=content.icon)
+//- button popup

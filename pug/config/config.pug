@@ -1,0 +1,45 @@
+include _sitemap
+include _link
+//- config global here
+- var pageTitle = "Trang Pham's Portfolio"
+
+- var metaDesc = "Design is solving problem "
+
+- var googleFonts = ["Oswald:300,400,500,700|Roboto:300,400,400i,700,900&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"]
+
+- var favicon = (["favicon.png"])
+
+
+
+//- Css
+//- ----------------------------------------------------
+-
+	var css_core = [
+		'style.css',
+	]
+-
+	var css_vendor = [
+		'foundation/motion-ui.min',
+	]
+//- Jquery
+//- ----------------------------------------------------
+-
+	var js_core = [
+		'jquery.min',
+		'snap.svg-min',
+		'elements',
+		'preload',
+		'vendors/foundation/foundation.min',
+		'fontawesome-all.min',
+		'custom'
+	]
+
+-
+	var js_vendor = [
+		//- 'owl.carousel/owl.carousel.min'
+	]
+//- MIXINs
+include ../mixins/mixin
+
+//- HEADER
+include _nav.pug

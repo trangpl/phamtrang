@@ -1,0 +1,92 @@
+#logo
+	// variables
+	$logo-size: 50px
+	$left: 5%
+	$top: 30px
+	// $color: url(#logo_grad)
+	$color: rgba(0,0,0,0.2)
+	// --------------------------
+	@extend %fix
+	@extend %lv2
+	width: $logo-size
+	top: $top
+	left: $left
+	+breakpoint(small only)
+		left: 30px
+		top: 20px
+		width: $logo-size/2 
+	path
+		fill: $color
+header
+	padding-top: 30px
+	.grid-container
+		+breakpoint(xxlarge)
+			max-width: 90%
+			 
+#brand
+	// position
+	display: inline-block 
+	@extend %roboto
+	color: $base
+	h5
+		@extend %fit
+		font-weight: bold
+	p
+		@extend %fit
+		color: lighten($base, 30)
+	
+.burger
+	// variables
+	$burger-size: 21px
+	$right: 5%
+	$top: 30px
+	$thick: 2px
+	$color: $base
+	$active-color: white
+	// ----------------------------
+	@extend %lv4
+	position: fixed
+	right: $right
+	top: $top
+	width: $burger-size*1.5
+	height: $burger-size*1.5 
+	+breakpoint(small only)
+		right: 20px
+		top: 30px
+		width: $burger-size
+		height: $burger-size
+	display: block
+	cursor: pointer 
+	span
+		@extend %anchor
+		display: block
+		@extend %trans_mid
+		border-bottom: $thick solid
+		border-color: $color 
+		-webkit-transition: all 1s 
+		-moz-transition: all 1s 
+		-ms-transition: all 1s 
+		-o-transition: all 1s 
+		transition: all 1s
+		&:first-child
+			width: 100%
+			margin-top: 15px
+			+breakpoint(small only)
+				margin-top: 4px
+		&:last-child
+			width: 70%
+			margin: 9px 0 0 auto
+			+breakpoint(small only)
+				margin: 6px 0 0 auto
+		
+	&.active
+		span
+			// border-color: $active-color
+			&:first-child
+				+rotate(Z, 405deg)		 
+			&:last-child
+				+rotate(Z, 495deg)
+				width: 100%
+				margin: -2px 2px 0 0
+	&.hover
+		span

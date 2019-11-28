@@ -1,0 +1,31 @@
+//- input
+//- -----------------------------------		
+mixin input(content)
+	div(class!='is-input' + content.type)
+		input(type="text", required, value=content.value)
+		span.is-input__bar
+		label=content.pl
+		if content.icon
+			.is-input__icon
+				.anchor
+					i(class!=content.icon)
+		if content.sapo
+			.is-input__helper
+				span
+					small=content.sapo
+		if content.link
+			.is-input__helper
+				a(href="#")
+					small=content.link
+
+//- textarea
+//- -----------------------------------	
+mixin textarea(content)
+	div(class!='is-input' + content.type)
+		textarea(type="text", rows='3', required, class!=content.alert, value=content.value)
+		span.is-input__bar
+		label=content.pl
+		if content.sapo
+			.is-input__helper
+				span
+					small=content.sapo

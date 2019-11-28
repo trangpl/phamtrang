@@ -1,0 +1,19 @@
+
+//- ---------------------------------------
+//- .alert-link
+//- ---------------------------------------
+//- to quickly provide matching colored links within any alert
+
+mixin bs_alerts(content)
+	if content.dismissible = true
+		.alert.alert-dismissible.fade.show(class!='alert-' + content.alert,role='alert')
+			block
+	else
+		.alert(class!='alert-' + content.alert,role='alert')
+			block
+
+
+			
+
+
+

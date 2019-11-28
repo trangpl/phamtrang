@@ -1,0 +1,41 @@
+//- checkbox
+//- -----------------------------------		
+mixin radio(content)
+	div(class!='is-radio' + content.type)
+		input(type='radio', name=content.name, value=content.value, id=content.id)
+		label(for=content.id)=content.ql
+		.boat
+			.is-radio__helper
+		if content.other
+			.is-input
+				input(type='text', placeholder=content.other, required)
+				span.is-input__bar
+
+
+mixin checkbox(content)
+	div(class!='is-radio' + content.type)
+		input(type='checkbox', name=content.name, value=content.value, id=content.id)
+		label(for=content.id)=content.ql
+		.boat
+			.is-checkbox__helper
+				i.fas.fa-check
+		if content.other
+			.is-input
+				input(type='text', placeholder=content.other, required)
+				span.is-input__bar
+
+//- radio
+//- -----------------------------------	
+mixin radio-mat(content1, content2)
+	.tp-radio
+		.radio
+			label
+				input(type='radio' name='radio')
+				i.helper
+				p= content1
+		.radio
+			label
+				input(type='radio' name='radio')
+				i.helper
+				p= content2
+

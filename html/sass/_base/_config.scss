@@ -1,0 +1,93 @@
+//- functions
+//- ----------------------------------------------------------------------------------------
+@function map-deep-get($map,$keys...) {
+	@each $key in $keys {
+		$map: map-get($map, $key);
+	}
+	@return $map;
+}
+
+@function map-get-value($map, $key, $i) {
+	$map: map-get($map, $key);
+	@each $value in $map {
+		$no: nth($value, $i);
+		@return $no
+	}
+}
+//- gradients
+//- -------------------------------------------------------------------------------------
+$global_grad: (
+		g1: (from: #e49071,to: #c872bc),
+		g2: (from: #fca23f,to: #ec6c85),
+		g3: (from: #798de5,to: #aa70e7),
+		g4: (from: #9775e5,to: #1de0d0),
+		g5: (from: #FEE140,to: #FA709A),
+		g6: (from: #08AEEA,to: #2AF598),
+		g7: (from: #8EC5FC,to: #E0C3FC),
+		g8: (from: #85FFBD,to: #FFFB7D),
+		g9: (from: #FDEB71,to: #F8D800),
+		g10: (from: #81FBB8,to: #28C76F),
+		isme: (from: #FBB38F,to: #9a2237),
+		s1: (from: #798de5, to: #8294e5),
+		s2: (from: #8294e5, to: #aa70e7),
+		intro: (from: #ffe600, to: #EFC203),
+	);
+//- bezier timing
+//- ------------------------------------------------------------------------------------
+$timing: (
+	in: cubic-bezier(1,.04,.93,.61),
+	out: cubic-bezier(.22,.79,.5,.98),
+	inout: cubic-bezier(.75,.06,.34,.97),
+	outin: cubic-bezier(0.05,0.88,0.94,.14),
+	outquad: cubic-bezier(1,.01,1,.16),
+	inquad: cubic-bezier(0,.98,.09,.99),
+	elasticLong: cubic-bezier(.97,-0.28,0,1.74),
+	);
+// main bg
+$animations: (
+	fadein: 'fadeIn',
+	fadeout: 'fadeOut',
+	inver10: 'fadeInver10',
+	outver10: 'fadeOutver10',
+	inver30: 'fadeInver30',
+	inver50: 'fadeInver50',
+	outver30: 'fadeOutver30',
+	outver50: 'fadeOutver50',
+	inhor30: 'fadeInhor30',
+	outhor30: 'fadeOuthor30',
+	inhor30rev: 'fadeInhor30rev',
+	outhor30rev: 'fadeOuthor30rev',
+	);
+$ani-dura: (
+	200: 200ms,
+	300: 300ms,
+	500: 500ms,
+	1000: 1000ms,
+	1500: 1500ms
+	);
+$trans-distant: (
+	0: 0,
+	-30: -30px,
+	-10: -10px,
+	10: 10px,
+	30: 30px,
+	);
+$bg_color: white;
+//- fonts
+//- -------------------------------------------------------------------------------------------
+$fonts: (
+	roboto: 'Roboto',
+	oswald: 'Oswald',
+	robocon: 'Roboto Condensed',
+	);
+//- z-index
+//- -------------------------------------------------------------------------------------------
+$z_index: (
+	lv1: 50,
+	lv2: 100,
+	lv3: 150,
+	lv4: 200,
+	
+	);
+//- animations
+//- -------------------------------------------------------------------------------------------

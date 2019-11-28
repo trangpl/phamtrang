@@ -1,0 +1,31 @@
+mixin breadCrumb()
+	.breadCrumb
+		ul
+			li
+				a(href="index.html")
+					i.fa.fa-home
+			block
+
+mixin breadCrumb-link(content)
+	li
+		i.fa.fa-angle-right
+	li
+		a(href=content.link + '.html', class!=content.stt)= content.label
+
+mixin breadcrumb(content)
+	.breadcrumb
+		ul
+			li
+				a(href="1.hompage.html")
+					i.fa.fa-home.fa-sm
+			li
+				i.fa.fa-angle-right.fa-sm
+			if content.mid
+				each item in content.mid
+					li
+						a(href=item.href)=item.link
+					li
+						i.fa.fa-angle-right
+			li
+				a(href=content.href)=content.link
+	.clearfix

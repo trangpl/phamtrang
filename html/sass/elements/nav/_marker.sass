@@ -1,0 +1,32 @@
+#marker
+	@extend %boat
+	width: 50%
+	bottom: -40px
+	left: 5%
+	opacity: 0 
+	path
+		fill: #f1f1f1
+	+ani-name(list_down)
+	+ani-func(map-deep-get($timing, 'in'))
+	+ani-mode(forwards)
+	+ani-dura(0.2s)
+	.active &
+		+ani-name(list_up)
+		+ani-func(map-deep-get($timing, 'out'))
+		+ani-mode(forwards)
+		+ani-dura(0.2s)
+		+ani-delay(1s)
+	+breakpoint(medium down)
+		width: 70vh
+		+trans-origin(left, center)
+		+rotate(Z, -90deg)
+		left: 95%
+		bottom: 0
+		+ani-name(mark_down)
+		.active &
+			+ani-name(mark_up)
+			+ani-func(map-deep-get($timing, 'out'))
+			+ani-mode(forwards)
+			+ani-dura(0.2s)
+			+ani-delay(1s)
+			

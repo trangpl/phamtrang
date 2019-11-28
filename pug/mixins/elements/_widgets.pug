@@ -1,0 +1,33 @@
+mixin widget__event(content)
+	.widget(class!=content.class, id=content.id)
+		if content.class == 'widget__bot'
+			.widget__content
+				button(type='button', data-dismiss="modal", aria-label="Close", class!=content.close)
+				a(href=content.href)
+					// Content with 260px x 150px max-size
+					block 
+		if content.class == 'widget__top'
+			.container
+				// Content with texts and button
+				p
+					strong=content.time
+					=content.name
+					a(href=content.href)=content.link
+
+mixin widget__event__theming(content)
+	.tab-pane.fade(role='tabpanel', class!=content.class, id=content.id)
+		each item in content.items
+			.widget(class!=item.class + item.theme, id=item.id)
+				if item.class == 'widget__bot'
+					.widget__content
+						button(type='button', data-dismiss="modal", aria-label="Close", class!=item.close)
+						a(href=item.href)
+							// item with 260px x 150px max-size
+							block 
+				if item.class == 'widget__top'
+					.container
+						// item with texts and button
+						p
+							strong=item.time
+							=item.name
+							a(href=item.href)=item.link

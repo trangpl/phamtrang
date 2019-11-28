@@ -1,0 +1,35 @@
+mixin nav_collapsed(content)
+	ul(class!=content.class)
+		each item in content.li
+			li(class!=item.class)
+				a(href=item.href)= item.link
+	p.nav_sapo
+		| I do things
+		br
+		| We do great things
+//- icons here-----------------------------------------------
+
+
+//- contents here-----------------------------------------------
+header
+	.grid-container
+		a#brand(href="dynamic_theme.html")
+			//- #logo
+			h5 Pham Trang
+			p
+				| Portfolio
+	#nav
+		.backdrop
+		.nav_container
+		.nav_marker
+			#marker
+			each item in nav_items
+				+nav_collapsed(item)
+			each item in nav_socials
+				+nav_socials(item)
+		
+	.burger
+		span
+		span
+		
+

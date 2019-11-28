@@ -1,0 +1,69 @@
+mixin widget__quote(content)
+	.widget(class!=content.class, id=content.id)
+		.widget__content
+			button(type='button', data-dismiss="modal", aria-label="Close", class!=content.close)
+			a(href=content.href)
+				// Content with 350x180px maxsize
+				block
+
+mixin popupIBD()
+	#popup(tabindex="-1", role="dialog").modal.ibd-modal
+		.modal-dialog
+			.modal-content.clearfix
+				.modal-header
+					button(type="button" data-dismiss="modal" aria-label="Close").pull-right
+						span(aria-hidden='true') x
+					h3 THÔNG TIN CỦA BẠN
+				.modal-body
+					form
+						.row
+							.col-sm-4
+								+input({'pl':'Họ và tên','type':' ibd__style'})
+								p
+									strong Hiện đang là:
+								each item in info1
+									+radio(item)
+								+input({'pl':'Số điện thoại','type':' ibd__style'})
+								+input({'pl':'Email','type':' ibd__style'})
+								+input({'pl':'Trường THPT đang học / đã tốt nghiệp','type':' ibd__style','sapo':'Nếu là Phụ huynh HS, vui lòng ghi tên trường của con'})
+							.col-sm-4
+								p
+									strong Bạn biết đến IBD qua kênh nào:
+								each item in infoK1
+									+checkbox(item)
+								+input({'pl':'Khác','type':' ibd__style'})
+
+							.col-sm-4
+								p
+									strong Bạn cần tìm hiểu thêm thông tin về ngành nào?
+								each item in infoN1
+									+checkbox(item)
+								+input({'pl':'Khác','type':' ibd__style'})
+							.col-sm-4
+								p
+									strong Tôi mong muốn nhận thêm các thông tin tuyển sinh
+								.tp-radio
+									each item in infoA1
+										+radio(item)
+								+button('Gửi thông tin')
+
+mixin modal__noheading(content)
+	.modal.modal__svg(tabindex="-1", role="dialog", id=content.id)
+		.modal-dialog
+			.modal-content.clearfix
+				.modal-header
+					button(type='button', data-dismiss="modal", aria-label="Close", class!=content.close)
+					div(id=content.svg)
+					h3 Đăng ký thông tin
+				.modal-body
+					form(action="")
+						p.bg-warning Vui lòng để lại thông tin để tham dự sự kiện hoặc tìm hiểu thêm về chương trình
+						br
+						.row
+							.col-sm-6
+								each item in content.items
+									+input(item)
+							.col-sm-6
+								each item in content.items2
+									+radio(item)
+						button.isme__style.is-btn.is-btn__bg(type='button', data-dismiss="modal", aria-label="Close") Đăng ký

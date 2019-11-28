@@ -1,0 +1,41 @@
+.title
+	@extend %roboto
+	font-weight: 900
+	text-transform: uppercase
+	@extend %anchor
+	padding-top: 3rem
+	margin-bottom: 4rem
+	z-index: 10
+	padding-left: 20px
+	small
+		text-transform: none
+		font-weight: normal
+	&::after
+		content: ''
+		display: inline-block
+		position: absolute 
+		width: 80px
+		height: 5px
+		background: rgba(0,0,0,0.5)
+		left: 0px
+		bottom: -20px
+		z-index: -1  
+			  
+.desc
+	p
+		padding-left: 3rem
+		padding-right: 2rem
+		+breakpoint(medium down)
+			padding-left: 20px
+			padding-right: 15vw
+	.button
+		margin-left: 3em
+		+breakpoint(medium down)
+			margin-left: 20px
+		font-weight: bold
+		margin-top: 50px
+		color: mix($base, $primary-color, 80)
+		 
+			
+.short_des
+	font-weight: bold

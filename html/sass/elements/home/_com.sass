@@ -1,0 +1,144 @@
+$com-time: 5000ms
+// style
+// ----------------------------------------------------------------------------
+	// border
+#com_bd
+	stroke-dasharray: 10,10,500,5,600
+#com_line
+	stroke: #e2e2e2
+	stroke-width: 1
+	@extend %invi
+	@extend %forwards
+	@extend %dura-500
+	@extend %func-out
+	+ani-delay(400ms)
+	.is-active &
+		@extend %inver10
+#com_ring
+	@extend %invi
+	@extend %forwards
+	@extend %func-out
+	@extend %dura-300
+	+ani-delay(600ms)
+	.is-active &
+		@extend %fadein
+#com_bg
+	+ani-delay(700ms)
+	// codebar------------------------------------------------------
++keyframes(code_bar)
+	0%
+		stroke-dashoffset: 160
+	100%
+		stroke-dashoffset: 0
+#code_bar
+	stroke-dasharray: 160
+	stroke-dashoffset: 160
+	@extend %forwards
+	@extend %func-in
+	@extend %dura-300
+	+ani-delay(700ms)
+	.is-active &
+		+ani-name(code_bar)
+#code_tree
+	@extend %invi
+	@extend %forwards
+	@extend %func-out
+	@extend %dura-300
+	+ani-delay(900ms)
+	.is-active &
+		@extend %inver30
+	// desktop------------------------------------------------------
+$desk-time: 1700ms
+%desk-dura
+	+ani-dura($desk-time)
++keyframes(com_desk)
+	0%
+		opacity: 0
+		+translate(Y, 50px)
+	10%
+		opacity: 1
+	90%
+		opacity: 1
+	100%
+		opacity: 0
+		+translate(Y, 0px)
+#com_desk, #com_backdrop
+	@extend %invi
+	+translate(Y, 50px)
+	@extend %func-outin
+	@extend %desk-dura
+	.is-active &
+		+ani-name(com_desk)
+#com_desk
+	+ani-delay(850ms)
+#com_backdrop
+	+ani-delay(800ms)
+
+#desk_img1, #dt_sapo, #dt_title
+	@extend %invi
+	@extend %forwards
+	@extend %desk-dura
+	@extend %func-out
+	.is-active &
+		@extend %inver10
+#desk_img1
+	+ani-delay(950ms)
+#dt_title
+	+ani-delay(1100ms)
+#dt_sapo
+	+ani-delay(1200ms)
+@for $i from 1 through 4
+	#dt_tab#{$i}, #dt_text#{$i}
+		@extend %invi
+		@extend %forwards
+		@extend %func-out
+		@extend %desk-dura
+		.is-active &
+			@extend %inver10
+	#dt_tab#{$i}
+		+ani-delay(1200ms + $i*100ms)
+	#dt_text#{$i}
+		+ani-delay(1600ms + $i*100ms)
+
+	// mobile------------------------------------------------------
+$mb_imgbg: #61CD41
+$mb_imgbg2: #FFEBCF
+$mb_hill: #30B72A
+$mb_sun: #8EDE7B
+$mb_sun2: #D38A2A
+$mb_hill2: #A8740C
+#com_mb
+	@extend %invi
+	@extend %forwards
+	@extend %func-out
+	@extend %desk-dura
+	+translate(Y, 50px)
+	.is-active &
+		@extend %inver50
+#com_mb
+	+ani-delay(850ms + $desk-time)
+#mb_img, #text_ver
+	@extend %invi
+	@extend %forwards
+	@extend %func-out
+	@extend %desk-dura
+	.is-active &
+		@extend %inver10
+#mb_img
+	+ani-delay(1000ms + $desk-time)
+#text_ver
+	+ani-delay(1200ms + $desk-time)
+	// code------------------------------------------------------
+@for $i from 1 through 10
+	#cl#{$i}, #cll#{$i}
+		@extend %invi
+		@extend %forwards
+		@extend %func-out
+		@extend %desk-dura
+		.is-active &
+			@extend %inver10
+	#cl#{$i}
+		+ani-delay(850ms + $i*100ms)
+	#cll#{$i}
+		+ani-delay(750ms + $desk-time + $i*100ms)
+	// com------------------------------------------------------

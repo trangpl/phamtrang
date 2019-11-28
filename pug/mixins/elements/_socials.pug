@@ -1,0 +1,8 @@
+mixin nav_socials(content)
+	ul(class!=content.class)
+		each item in content.li
+			li
+				a(href=item.href)
+					i(class!=item.icon)
+		li
+			span

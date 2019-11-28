@@ -1,0 +1,96 @@
+%size1
+	width: 50px
+	opacity: 0.4
+	position: fixed
+	left: calc(50% - 25px)
+	top: calc(50% - 25px) 
+	+animation(spin 10s infinite)
+%size2
+	width: 30px
+	position: fixed
+	left: calc(50% - 15px)
+	top: calc(50% - 15px)
+	+animation(spin 10s infinite)
+
+.tri1, .hex1, .pen1
+	@extend %size1
+.tri2, .hex2, .pen2
+	@extend %size2
++keyframes(spin)
+	from
+		transform: rotate(0deg)
+	to
+		transform: rotate(360deg)
+
+.main_btn
+	text-align: center
+	> p
+		padding: 0
+		margin: 0
+		@extend %oswald
+		&:nth-of-type(1)
+			position: relative
+			text-transform: uppercase
+			font-size: 60px
+			line-height: 60px
+			font-weight: normal
+			letter-spacing: .2em
+			+breakpoint(small only)
+				font-size: 40px
+				letter-spacing: 0.05em
+		
+		
+$color1: #fca23f
+$color2: #ec6c85
+%theme
+	position: relative
+	height: 100vh
+	+breakpoint(medium down)
+		height: 50vh
+	display: flex 
+	-webkit-align-items: center 
+	align-items: center 
+	-webkit-justify-content: center 
+	justify-content: center
+	-webkit-flex-direction: column 
+	-ms-flex-direction: column 
+	flex-direction: column
+	overflow: hidden
+	
+					  
+.dark_theme
+	z-index: 10
+	@extend %theme
+	@extend %bg-45_g2
+	p
+		color: #f2f2f2
+	.logo_theme
+		path
+			stroke: white
+.light_theme
+	z-index: 1 
+	@extend %theme
+	.main_btn
+		p
+			&:nth-of-type(1)
+				@extend %bg-45_g2
+				-webkit-background-clip: text 
+				background-clip: text
+				-webkit-text-fill-color: transparent
+	p
+		color: #000
+	&:hover
+		.main_btn
+			> p
+				.text_hover_left
+					&::after
+						stroke-dashoffset: 0
+.rd_shapes
+	polygon
+		stroke: darken(grey, 40)
+	&[id*='_white']
+		polygon
+			stroke: white
+	
+
+	 

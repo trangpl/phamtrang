@@ -1,0 +1,31 @@
+extends ../layoutPage
+append config
+	- pageTitle = 'Let coffee together, contact me'
+	-
+		css_vendor = [
+
+		]
+	- 
+		js_vendor = [
+			'contact'
+		]
+	- nav_items = nav_contact
+	// variables
+
+//- loader
+block loader
+	// include ../includes/_loader
+
+//- background or parallax here
+block background
+
+//- header here
+block header
+	include ../includes/headers/nav
+//- main content here
+block main
+	include ../includes/contact/form
+//- footer here
+block footer
+//- popup here
+block popup

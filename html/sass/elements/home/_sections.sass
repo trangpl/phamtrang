@@ -1,0 +1,102 @@
+
+
+%feature
+	@extend %anchor
+	+breakpoint(large)
+		padding: 50px 0 100px 0
+	+breakpoint(xlarge)
+		padding: 100px 0 200px 0
+	+breakpoint(medium down)
+		min-height: 100vh
+		padding-bottom: 50px
+		padding-top: 30px
+		margin-top: -50px
+	.title
+		~p, ~a,&
+			@extend %invi
+			@extend %dura-1000
+			@extend %forwards
+			@extend %func-out
+		~p
+			+ani-delay(300ms)
+		~a
+			+ani-delay(600ms)
+.feature
+	@extend %feature
+	&.left
+		&.active
+			.title
+				~p, ~a,&
+					@extend %inhor30
+	&.right
+		&.active
+			.title
+				~p, ~a,&
+					@extend %inhor30rev
+.para_box
+	@extend %anchor
+	img
+		width: 100%
+		height: auto
+		@extend %filter-sd
+.illus
+	padding-top: 50px
+	+breakpoint(medium down)
+		padding-top: 0
+		-webkit-order: -1 
+		-ms-order: -1 
+		order: -1 
+.illus_bg
+	width: 150%
+	position: absolute
+	+breakpoint(large)
+		top: 50%
+		+translate(Y, -50%)
+	.left &
+		right: -10%
+	.right &
+		left: -10%
+	+breakpoint(medium down)
+		height: auto
+		width: 120vw
+		.left &
+			right: -10vw 
+		.right &
+			left: -10vw
+.illus_box
+	@extend %anchor
+	overflow: hidden
+	img
+		width: 100%
+		@extend %boat
+		top: 0
+		left: 0
+.illus_container
+	@extend %anchor
+// section
+// -------------------------------
+// pr1
+#pr1
+	.desc
+		color: white
+	.illus_bg
+		&::before
+			@extend %content
+			width: 200%
+			height: 100%
+			@extend %bg-45_isme
+			left: 80%
+			z-index: -1 
+
+			
+
+// pr2
+
+#o_out, #o_in
+	stroke-width: 3px
+	stroke-dasharray: 10 10 800 10 1170
+#o_out
+	stroke: mix(#8EBA3B, white, 40)
+#o_in
+	stroke: mix(#F79433, white, 40)
+// skills\

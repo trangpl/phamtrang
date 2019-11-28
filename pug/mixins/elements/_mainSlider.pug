@@ -1,0 +1,42 @@
+mixin owl-carousel(name)
+	.owl-carousel.owl-theme(id=name)
+		block
+
+mixin owl-item1(content)
+	.item(class!=content.type)
+		img(src="../img/main-slide-" + content.img + ".jpg" , alt="main-slide-" + content.img)
+		a(href=content.link).hidden-xs
+			h1= content.title
+			p= content.sapo
+		.visible-xs
+			.sub-sapo
+				a(href=content.link)
+					h4= content.title
+				.left-divider
+				p= content.sapo
+
+mixin owl-item2(content)
+	.item(class!=content.type)
+		img(src="../img/main-slide-" + content.img + ".jpg" , alt="main-slide-" + content.img)
+		.caption.hidden-xs
+			h1= content.title
+			p= content.sapo
+			a(href=content.link) read more
+				i.fa.fa-chevron-right
+		.visible-xs
+			.sub-sapo
+				a(href=content.link)
+					h4= content.title
+				.left-divider
+				p=content.sapo
+		
+mixin owl-item3(content)
+	.item(class!=content.type)
+		a(href=content.link)
+			img(src="../img/main-slide-" + content.img + ".jpg" , alt="main-slide-" + content.img)
+		.visible-xs
+			.sub-sapo
+				a(href=content.link)
+					h4= content.title
+				.left-divider
+				p= content.sapo

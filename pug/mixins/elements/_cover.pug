@@ -1,0 +1,8 @@
+mixin cover(content)
+	.cover
+		img(src='../img/covers/' + content.img + '.jpg', alt=content.img)
+		+svgCover()
+		.cover-title
+			.col-sm-6
+				h2= content.title
+				p= content.sapo

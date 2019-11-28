@@ -1,0 +1,45 @@
+block config
+	include config/config
+
+doctype html
+html(lang='en')
+	head
+		title
+			block title
+				| #{pageTitle}
+		meta(charset='utf-8')
+		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1")
+		meta(name="discription", content=metaDesc)
+		//- Favicon link
+		if favicon
+			link(rel="shortcut icon", type="image/png", href="img/" + favicon)
+		//- Font link
+		if googleFonts
+			each font in googleFonts
+				link(rel="stylesheet", type="text/css", href="http://fonts.googleapis.com/css?family=" + font)
+		//- CSS link
+		if css_core
+			each style in css_core
+				link(rel="stylesheet", href="css/" + style)
+		if css_vendor
+			each style in css_vendor
+				link(rel="stylesheet", href="css/vendors/" + style)
+	body
+		block background
+
+		block header
+			//- Logo, nav here
+		block main
+			//- Main body here
+		block footer
+			//- Links, Copyright, other here
+		block popup
+			//- Popup here
+		if js_core
+			each jquery in js_core
+				script(type="application/javascript", src="js/" + jquery + '.js')
+		//- This is vendor Js
+		if js_vendor
+			each jquery in js_vendor
+				script(type="application/javascript", src="js/vendors/" + jquery + '.js')

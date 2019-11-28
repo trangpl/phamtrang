@@ -1,0 +1,62 @@
+
+.orbit-container
+	height: auto !important
+	&:focus
+		outline: none 
+	.grid-container
+		+breakpoint(xxlarge)
+			max-width: 90% 
+ 
+.text_container
+ 	@extend %flex
+ 	-webkit-flex-direction: column
+ 	-ms-flex-direction: column
+ 	flex-direction: column
+ 	-webkit-justify-content: center
+ 	justify-content: center
+ 	h1
+ 		text-transform: uppercase
+ 		@extend %roboto
+ 		font-weight: 900
+ 		@extend %anchor
+ 		&:nth-of-type(1)
+	 		color: lighten($base, 50) 
+ 		+breakpoint(medium down)
+ 			text-align: center
+ 		a
+ 			@extend %boat
+ 			bottom: -80px
+ 			z-index: 1
+ 			color: rgba($base, 0.5) !important
+ 			border-color: rgba($base, 0.5) !important
+ 			+breakpoint(medium down)
+ 				position: relative
+ 				bottom: -0.5rem
+ 		&:nth-of-type(2)
+ 			+breakpoint(large)
+ 				&::after
+ 					content: ''
+ 					display: inline-block
+ 					position: absolute 
+ 					width: 80px
+ 					height: 20px
+ 					background: #fdff00
+ 					left: 20px
+ 					bottom: 10px
+ 					z-index: -1   
+ 				font-size: 2.5rem
+ 			+breakpoint(xxlarge)
+ 				font-size: 3.4em	
+ 		+breakpoint(large)
+ 			padding-left: 3rem
+ 	+breakpoint(medium down)
+ 		padding-top: 10vw
+.illus_container
+	.static &
+		+breakpoint(medium down)
+			padding-top: calc(50vw - 20px)
+	.orbit-slide &
+		+breakpoint(medium down)
+			padding-top: 40vw
+			padding-bottom: calc(10vw - 20px) 
+ 

@@ -1,0 +1,9 @@
+mixin featurePanel(content)
+	a(href=content.link + ".html").feature
+		.row
+			.col-xs-3
+				block
+			.col-xs-9
+				h4= content.title
+				p= content.sapo
+				
